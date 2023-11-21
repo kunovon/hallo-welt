@@ -1,5 +1,6 @@
-FROM golang:1.21 as builder
-WORKDIR /
+#FROM alpine:3.15 as root-certs
+FROM alpine:3.18.4 as root-certs
+RUN apk add -U --no-cache ca-certificates
 RUN addgroup -g 1001 app
 RUN adduser app -u 1001 -D -G app /home/app
 COPY . .
